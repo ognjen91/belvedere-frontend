@@ -1,0 +1,33 @@
+
+
+*{
+  font-family: $fo2;
+  color: $c1;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $fo1;
+}
+
+.fo1{
+  font-family: $fo1 !important;
+}
+
+.fo2{
+  font-family: $fo2 !important;
+}
+
+
+[v-cloak] { display: none; }
+
+
+body{
+  min-height: 100vh;
+}
+
+
+i{
+  color: $c1 !important;
+}

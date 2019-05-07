@@ -1,0 +1,28 @@
+{
+  "name": "belvedere-front",
+  "version": "1.0.0",
+  "description": "The Front Side of Belvedere Apartments New Website",
+  "author": "Ognjen Kuzmanović",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.4.0",
+    "v-gallery": "^1.2.4",
+    "vue-gallery": "^2.0.0",
+    "vuetify": "^1.5.13"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "@nuxtjs/style-resources": "^0.1.2",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
+    "sass-loader": "^7.1.0"
+  }
+}

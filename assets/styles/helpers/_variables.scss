@@ -1,0 +1,90 @@
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$white: #fff;
+
+
+// non-default Colors
+$c0 : #282828; //dark
+$c1 : #A30046; //pink
+$c2 : #909090; //grayFontCollor
+$c3 : #A30046; //crvena
+$cf : #525050; //bojaFonta
+
+
+$dangerColor : #bb2124;
+
+$c107 : rgba($c1, 0.7); //tamnoPlava
+$c207 : rgba($c2, 0.7); //svijetloPlava
+$c307 : rgba($c3, 0.7); //crvena
+
+
+
+$c105 : rgba($c1, 0.5); //tamnoPlava
+$c205 : rgba($c2, 0.5); //svijetloPlava
+$c305 : rgba($c3, 0.5); //crvena
+
+
+$c104 : rgba($c1, 0.4); //tamnoPlava
+$c204 : rgba($c2, 0.4); //svijetloPlava
+$c304 : rgba($c3, 0.4); //crvena
+
+
+
+$c102 : rgba($c1, 0.2); //tamnoPlava
+$c202 : rgba($c2, 0.2); //svijetloPlava
+$c302 : rgba($c3, 0.2); //crvena
+
+
+
+//Borders
+$blab : 1px solid black;
+$redb : 1px solid red;
+$blub : 1px solid blue;
+$greb : 1px solid green;
+$yelb : 1px solid yellow;
+$aqub : 1px solid aqua;
+$orab : 1px solid orange;
+$grab : 1px solid rgb(186, 180, 172);
+$whib : 1px solid #fff;
+$c1b: 1px solid $c1;
+$c2b: 1px solid $c2;
+$c3b: 1px solid $c3;
+
+
+
+$blab2 : 2px solid black;
+$redb2 : 2px solid red;
+$blub2 : 2px solid blue;
+$greb2 : 2px solid green;
+$yelb2 : 2px solid yellow;
+$aqub2 : 2px solid aqua;
+$orab2 : 2px solid orange;
+
+
+//Breakpoints
+$sm : 576px;
+$md : 768px;
+$lg : 992px;
+$xl : 1140px;
+
+//Fonts
+$fo1: 'Cinzel', serif;
+$fo2: 'Josefin Sans', sans-serif;
+
+
+.fo1{
+  font-family: $fo1;
+}
+
+.fo2{
+  font-family: $fo2;
+}

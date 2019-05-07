@@ -1,0 +1,182 @@
+header {
+  position: absolute;
+}
+
+.menuBtn {
+  position: fixed !important;
+  z-index: 20;
+  right: 4%;
+  top: 5%;
+}
+
+.menuDrawer{
+  // position: fixed;
+  // z-index: 10;
+}
+
+.menu {
+  position: fixed;
+  left: -100%;
+  border: 2px solid red;
+  z-index: 20;
+  background-color: rgba(#ffffff, 0.4);
+}
+
+.menusign {
+  color: blue;
+}
+
+.menuDrawer{
+
+  & a {
+
+    text-decoration: none;
+  }
+
+}
+
+.menuItemText{
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: none;
+    text-decoration: none;
+  }
+}
+
+.showMenu {
+  -webkit-animation: showMenu 1s forwards;
+  /* Safari 4+ */
+  -moz-animation: showMenu 1s forwards;
+  /* Fx 5+ */
+  -o-animation: showMenu 1s forwards;
+  /* Opera 12+ */
+  animation: showMenu 1s forwards;
+  /* IE 10+, Fx 29+ */
+}
+
+.hideMenu {
+  -webkit-animation: hideMenu 1s forwards;
+  /* Safari 4+ */
+  -moz-animation: hideMenu 1s forwards;
+  /* Fx 5+ */
+  -o-animation: hideMenu 1s forwards;
+  /* Opera 12+ */
+  animation: hideMenu 1s forwards;
+  /* IE 10+, Fx 29+ */
+}
+//show menu keyframes
+@-webkit-keyframes showMenu {
+  0% {
+    left: -100%;
+    height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    left: 0;
+    height: 100vh;
+    opacity: 1;
+  }
+}
+@-moz-keyframes showMenu {
+  0% {
+    left: -100%;
+    height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    left: 0;
+    height: 100vh;
+    opacity: 1;
+  }
+}
+@-o-keyframes showMenu {
+  0% {
+    left: -100%;
+    height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    left: 0;
+    height: 100vh;
+    opacity: 1;
+  }
+}
+@keyframes showMenu {
+  0% {
+    left: -100%;
+    height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    left: 0;
+    height: 100vh;
+    opacity: 1;
+  }
+}
+//hide menu keyframes
+@-webkit-keyframes hideMenu {
+  0% {
+    left: 0;
+    opacity: 1;
+    height: 100vh;
+  }
+
+
+
+  100% {
+    left: -100%;
+    opacity: 0;
+    height: 0;
+  }
+}
+@-moz-keyframes hideMenu {
+  0% {
+    left: 0;
+    opacity: 1;
+    height: 100vh;
+  }
+
+
+
+  100% {
+    left: -100%;
+    opacity: 0;
+    height: 0;
+  }
+}
+@-o-keyframes hideMenu {
+  0% {
+    left: 0;
+    opacity: 1;
+    height: 100vh;
+  }
+
+
+
+  100% {
+    left: -100%;
+    opacity: 0;
+    height: 0;
+  }
+}
+@keyframes hideMenu {
+  0% {
+    left: 0;
+    opacity: 1;
+    height: 100vh;
+  }
+
+
+
+  100% {
+    left: -100%;
+    opacity: 0;
+    height: 0;
+  }
+}

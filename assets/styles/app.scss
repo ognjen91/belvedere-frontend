@@ -1,0 +1,15 @@
+@import 'helpers/variables';
+@import 'helpers/defaults';
+@import 'helpers/mixins';
+@import 'helpers/helpers';
+@import 'helpers/animateCSS';
+@import 'helpers/classes';
+
+@import 'main/header';
+@import 'main/footer';
+
+@import 'pages/home';
+
+
+@import 'roomsNapartments/previews';
+@import 'blog/previews';
