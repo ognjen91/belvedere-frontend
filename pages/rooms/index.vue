@@ -4,14 +4,14 @@
 
       <v-flex my-4>
         <v-layout column>
-          <h1>Izaberite odgovarajući smještaj...</h1>
-          <h4>...a sve ostalo prepustite nama</h4>
+          <h1>{{ $t('rooms.title') }}...</h1>
+          <h4 class='cf'>...{{ $t('rooms.subtitle') }}a</h4>
         </v-layout>
       </v-flex>
 
-      <v-flex v-if='apartments.length' mb-5>
+      <v-flex v-if='apartments.length' mb-5 mt-2>
         <v-layout justify-start>
-        <h2 class="underlined spaced">Apartmani</h2>
+        <h2 class="underlined spaced">{{ $t('rooms.apartmentsTitle') }}</h2>
         </v-layout>
         <v-layout wrap justify-start>
 
@@ -24,7 +24,7 @@
 
       <v-flex v-if='rooms.length'>
         <v-layout justify-start>
-        <h2 class='underlined spaced'>Sobe</h2>
+        <h2 class='underlined spaced'>{{ $t('rooms.roomsTitle') }}</h2>
       </v-layout>
         <v-layout wrap justify-start>
 

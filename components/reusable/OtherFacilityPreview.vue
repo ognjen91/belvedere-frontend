@@ -5,18 +5,21 @@
 
       <v-card-title primary-title>
         <div>
-          <h3 class="headline mb-2">{{facility.name_sr}}</h3>
+          <h3 class="headline mb-2">{{facility[`name_${currentLocale}`]}}</h3>
+          <p class="cf">{{facility[`slogan_${currentLocale}`]}}</p>
+
           <div >
             <p class='mb-1'>
-              <span class="cf" v-if="facility.noOfRooms">{{facility.noOfRooms}} soba <span v-if="facility.noOfApartments">|</span></span>
-              <span class="cf" v-if="facility.noOfApartments">{{facility.noOfApartments}} apartmana</span>
+              <span class="cf" v-if="facility.noOfRooms">{{facility.noOfRooms}}  {{ facility.noOfRooms>1? $t('previews.rooms') :  $t('previews.room')}}
+                 <span v-if="facility.noOfApartments">|</span></span>
+              <span class="cf" v-if="facility.noOfApartments">{{facility.noOfApartments}}  {{ facility.noOfApartments>1? $t('previews.apartments') :  $t('previews.apartment')}}</span>
             </p>
            </div>
         </div>
       </v-card-title>
 
       <v-card-actions>
-        <v-btn nuxt :to="{ name: 'friends-facility', params: {facility: facility.id} }"><span class="c1">Pogledajte</span></v-btn>
+        <v-btn nuxt :to="localePath({ name: 'friends-facility', params: {facility: facility.id} })"><span class="c1">Pogledajte</span></v-btn>
       </v-card-actions>
     </v-card>
   </div>

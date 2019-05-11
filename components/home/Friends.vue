@@ -3,10 +3,10 @@
 
 
     <v-flex xs12 md4 class='friendsText'>
-      <h2 class="text-xs-center mb-4 friendsSectionTitle spaced2">Our Friends</h2>
+      <h2 class="text-xs-center mb-4 friendsSectionTitle spaced2">{{ $t('homepage.friends.title') }}</h2>
 
-      <p>Predlažemo da pogledate i objekte naših prijatelja</p>
-      <v-btn :to='{name: "friends"}' :color="c1" dark>Svi objekti prijatelja</v-btn>
+      <p>{{ $t('homepage.friends.text') }}</p>
+      <v-btn :to='localePath({name: "friends"})' :color="c1" dark>{{ $t('homepage.friends.buttonText') }}</v-btn>
 
     </v-flex>
     <v-flex xs12 md8>

@@ -45,10 +45,13 @@ export const mutations = {
       }
     })
 
+    // console.log(state.calendarsForDisplay);
+
     // making state.displayCalendars format available for displaying in vuetify calendars
     state.calendarsForDisplay.forEach(function(calendar){
-      calendar.dates = calendar.dates.split(",")
-      calendar.dates.forEach(function(date, index){
+  
+      //cleaning from empty strings
+      if(calendar.dates) calendar.dates.forEach(function(date, index){
         if(!date) calendar.dates.splice(index, 1)
           //if date format is valid, creates a date object
       })
@@ -66,10 +69,14 @@ export const mutations = {
 
     //iterate through every calendar and set state.freeRoomsAndApartments to those who are free in the period
     let frees = state.calendarsForSearch.filter(calendar=>{
-      return calendar.dates.every(function(date){
-        date = new Date(date);
-        return !(arrivalDate <= date && departureDate >= date)
-      })
+      if(calendar.dates){
+          return calendar.dates.every(function(date){
+            date = new Date(date);
+            return !(arrivalDate <= date && departureDate >= date)
+          })
+      } else {
+            return true
+    }
     })
 
     state.freeRoomsAndApartments = frees.map(calendar => { return {type: calendar.type, calendarable : calendar.calendarable}})

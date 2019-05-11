@@ -5,24 +5,43 @@
 
 <v-flex xs12 md6 class='aboutText'>
 
-  <h1 class="text-center">Priča o ljubavi</h1>
-  <p class='cf'>Hic a export ullamco, iudicem quem pariatur incididunt, ubi minim iudicem, eram
-    ab pariatur. Qui cillum se malis. Culpa nam iudicem an dolor o senserit legam
-    non appellat fidelissimae eu cillum admodum aut nescius ea quorum probant ne
-    adipisicing.Commodo quis nescius senserit, incididunt minim non iudicem
-    distinguantur ne quis eiusmod ex sempiternum iis e arbitror eu laborum, aute
-    ullamco cohaerescant se ita labore appellat graviterque, do tempor o aliqua,
-    quamquam te cillum aliquip. Arbitror cillum est consequat voluptatibus. Iis
-    fugiat arbitror graviterque ne culpa hic ab sunt fabulas e arbitror veniam ab
-    occaecat adipisicing, de culpa laboris efflorescere ut anim ea quibusdam eu
-    tempor eu te irure ingeniis probant qui quorum incurreret ab adipisicing ut an
-    proident e eiusmod.</p>
+  <h1 class="text-center"> {{ $t('about.title') }}</h1>
+  <p class='cf'> {{ $t('about.text') }}</p>
 </v-flex>
 
-<v-flex>
-  <v-img src='/placeholder.jpg' lazy-src='/placeholder.jpg'>
-
-  </v-img>
+<v-flex xs12 md6 px-3>
+  <v-card>
+        <v-container grid-list-sm fluid>
+          <v-layout row wrap>
+            <v-flex
+              v-for="(image, i) in images"
+              :key="i"
+              xs6
+              d-flex
+            >
+              <v-card flat tile class="d-flex">
+                <v-img
+                  :src="image"
+                  lazy-src="/placeholder.jpg"
+                  aspect-ratio="1"
+                  class="grey lighten-2"
+                >
+                  <template v-slot:placeholder>
+                    <v-layout
+                      fill-height
+                      align-center
+                      justify-center
+                      ma-0
+                    >
+                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                    </v-layout>
+                  </template>
+                </v-img>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-card>
 
 </v-flex>
 
@@ -37,6 +56,11 @@
 <script>
 export default {
   layout: 'pages',
+  data(){
+    return{
+      images : ['hn1.jpg', 'hn2.jpg', 'hn3.jpg', 'hn4.jpg']
+    }
+  }
 
 }
 </script>

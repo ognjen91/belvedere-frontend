@@ -10,21 +10,22 @@
 <v-container>
 
 <v-layout  column align-center>
-    <h1>{{facility.name_sr}}</h1>
-    <p><span v-if="apartments.length">{{apartments.length}} apartments <span v-if='rooms.length'>| </span></span><span v-if='rooms.length'>{{rooms.length}} rooms</span></p>
-    <h2><strong>Mjesto u gradu</strong></h2>
+    <h1>{{facility[`name_${currentLocale}`]}}</h1>
+    <h2><strong>{{facility.place}}</strong></h2>
+    <p><span v-if="apartments.length">{{apartments.length}}  {{ apartments.length>1? $t('previews.apartments') :  $t('previews.apartment')}}
+      <span v-if='rooms.length'>| </span></span><span v-if='rooms.length'>{{rooms.length}}  {{ rooms.length>1? $t('previews.rooms') :  $t('previews.room')}}</span></p>
 </v-layout>
 
 
 <v-layout wrap  py-5 column align-center>
 
     <v-flex  class='desc'>
-      <p>{{facility.description_sr}}</p>
+      <p class='cf'>{{facility[`description_${currentLocale}`]}}</p>
     </v-flex>
 
 
     <v-flex xs12 my-5 class='accomodation'>
-      <v-layout>
+      <v-layout justify-center>
         <v-flex xs12 md8>
           <RoomsAndApartments :rooms="rooms" :apartments='apartments' />
         </v-flex>
@@ -32,23 +33,22 @@
         <v-flex xs12 md3 style='height=100%;' class='basicInfo'>
           <v-layout column justify-center style='height=100% !important;' class='infoWrap'>
             <v-flex mb-4>
-              <h3>Basic info</h3>
+              <h3>{{ $t('friends.facility.basicInfoTitle') }}</h3>
             </v-flex>
 
             <v-flex>
-                  <p class="mb-1">  Adress : {{facility.adress}} </p>
-                  <p class="mb-1">  Owner : {{owner.name}}</p>
+                  <p class="mb-1">  {{ $t('friends.facility.address') }} : <span class="cf">{{facility.adress}}</span> </p>
+                  <p class="mb-1">  {{ $t('friends.facility.owner') }} : <span class="cf">{{owner.name}}</span></p>
 
                   <v-layout my-5>
-                    <v-icon class='pr-2'>fab fa-facebook-square</v-icon>
+                    <v-icon class='pr-2' color="rgba(60, 90, 152, 1)">fab fa-facebook-square</v-icon>
                     <v-icon>fab fa-instagram</v-icon>
                   </v-layout>
 
 
-                    <v-btn small :to="{ name: 'friends-facility-contact', params: {facility : this.facility.id} }">
-                      <v-icon small>far fa-envelope</v-icon> &nbsp; Kontaktirajte vlasnika!
-                    </v-btn>
-
+                  <v-btn small :to="{ name: 'friends-facility-contact', params: {facility : this.facility.id} }" >
+                    <v-icon small>far fa-envelope</v-icon> &nbsp; <span class="c1"> {{ $t('friends.facility.contactButtonText') }}! </span>
+                  </v-btn>
             </v-flex>
 
           </v-layout>
@@ -61,7 +61,7 @@
 <v-layout wrap>
 
       <v-flex xs12 md4 v-if="blogs.length">
-        <h3 class='text-xs-center'>Objave vlasnika</h3>
+        <h3 class='text-xs-center mb-3 cf'>{{ $t('friends.facility.ownersBlogTitle') }}</h3>
 
         <v-layout column align-center justify-center class='px-3'>
           <v-flex v-for='(post,i) in blogs' :key="i" xs10 md8 mb-4 v-if='i<3'>
@@ -95,6 +95,8 @@ import Gallery from '@/components/otherFacilities/Gallery.vue'
 import BlogPreview from '@/components/otherFacilities/OtherBlogPreview.vue'
 
 export default {
+
+  layouts : 'freindsNoHeaderPadding',
 
   components : {
 

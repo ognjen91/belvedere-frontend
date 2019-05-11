@@ -7,12 +7,12 @@
       <Amenities :object="apartment" />
 
 
-      <v-container>
+      <v-container class="mb-5">
         <v-layout wrap mb-3>
             <v-flex xs12 md8>
-              <v-layout align-center justify-center class="description" column>
-                <h4>Slogan ove sobe</h4>
-              {{apartment.description_sr}}
+              <v-layout align-center justify-center class="description cf" column>
+                <h4>{{apartment[`slogan_${currentLocale}`]}}</h4>
+              {{apartment[`description_${currentLocale}`]}}
             </v-layout>
             </v-flex>
 
@@ -20,9 +20,9 @@
               <Calendar :dates="calendarDates" />
             </v-flex>
 
-            <v-flex xs12>
+            <v-flex xs12 mt-4>
               <v-layout>
-                <h2>Slike ovog apartmana</h2>
+                <h2>Slike apartmana "{{apartment[`name_${currentLocale}`]}}"</h2>
               </v-layout>
               <Gallery :images="images" />
             </v-flex>
@@ -31,7 +31,7 @@
 
         <v-layout column mb-4>
           <v-flex mb-3>
-            <h2>Ostali apartmani</h2>
+            <h2>{{ $t('homepage.apartments.otherApartmentsTitle') }}</h2>
           </v-flex>
           <v-flex>
           <OtherApartments :apartments="otherApartments" />
@@ -41,7 +41,7 @@
 
         <v-layout column>
           <v-flex mb-3>
-            <h2>Pogledajte i...</h2>
+            <h2>{{ $t('homepage.apartments.seeAlso') }}</h2>
           </v-flex>
           <v-flex>
           <RoomsSuggestion :rooms="rooms" />
@@ -97,7 +97,8 @@ export default {
       },
 
       images(){
-        return this.apartment.images.map(img=> this.sourceFolder + img.name) //because image sources must be in array with full url
+        if(this.apartment.images) return this.apartment.images.map(img=> this.sourceFolder + img.name) //because image sources must be in array with full url
+        return []
     },
 
      otherApartments(){

@@ -4,13 +4,9 @@
       <!-- <v-layout column justify-center  class="entryText"  style='height:100%;'> -->
 
        <h2 class='mb-1 dislpay-2'>Herceg Novi</h2>
-       <h5 class='mb-5 title'>200 sunčanih dana godišnje</h5>
+       <h5 class='mb-5 title'>{{ $t('homepage.hercegNovi.subtitle') }}</h5>
 
-       <p class="cf">Lu fugiat possumus. Aliqua senserit se quem fugiat, si quae velit tempor
-         cernantur qui dolor deserunt te illustriora ita tamen aliquip deserunt ne est
-         incididunt sempiternum, ingeniis nisi magna ingeniis velit, eram comprehenderit
-         laboris multos ullamco ab cernantur eram minim excepteur labore. Est export
-         arbitror possumus.</p>
+       <p class="cf">{{ $t('homepage.hercegNovi.text') }}</p>
    <!-- </v-layout> -->
     </v-flex>
 

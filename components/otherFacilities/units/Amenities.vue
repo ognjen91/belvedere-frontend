@@ -2,23 +2,23 @@
   <v-layout wrap class="amenities"  pt-2 align-center justify-center>
     <v-flex v-if='object.kitchen' xs3 md2>
       <v-layout justify-center>
-        <p class="amenity">Kuhinja</p> <v-icon small>fas fa-check-circle</v-icon>
+        <p class="amenity">{{ $t('rooms.amenities.kitchen') }}</p> <v-icon small>fas fa-check-circle</v-icon>
       </v-layout>
     </v-flex>
     <v-flex v-if='object.bathroom' xs3 md2>
       <v-layout justify-center>
-        <p class="amenity">Kupatilo</p> <v-icon small>fas fa-check-circle</v-icon>
+        <p class="amenity">{{ $t('rooms.amenities.bathroom') }}</p> <v-icon small>fas fa-check-circle</v-icon>
       </v-layout>
     </v-flex>
     <v-flex v-if='object.terrcer' xs3 md2>
       <!-- !!!fix -->
       <v-layout justify-center>
-        <p class="amenity">Terasa</p> <v-icon small>fas fa-check-circle</v-icon>
+        <p class="amenity">{{ $t('rooms.amenities.terrace') }}</p> <v-icon small>fas fa-check-circle</v-icon>
       </v-layout>
     </v-flex>
     <v-flex v-if='object.conditioner' xs3 md2>
       <v-layout justify-center>
-        <p class="amenity">Klima uređaj</p> <v-icon small>fas fa-check-circle</v-icon>
+        <p class="amenity">{{ $t('rooms.amenities.conditioner') }}</p> <v-icon small>fas fa-check-circle</v-icon>
       </v-layout>
     </v-flex>
     <v-flex v-if='object.tv' xs3 md2>

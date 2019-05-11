@@ -10,7 +10,7 @@
    <v-container>
      <v-layout wrap>
        <v-flex xs12 md4>
-         <JumbotronOne />
+         <FirstText />
        </v-flex>
        <v-flex xs12 md8>
          <RoomsPreview />
@@ -27,12 +27,12 @@
   </v-container>
 
 
- <!-- <v-layout  class="parallax"> -->
- <v-layout mb-5>
+ <v-layout  class="parallax">
+ <!-- <v-layout mb-5> -->
    <Parallax />
  </v-layout>
 
- <v-container>
+ <v-container mb-5>
    <v-layout>
      <v-flex mb-5>
        <HercegNovi />
@@ -55,7 +55,7 @@
 import {mapGetters} from 'vuex'
 import CarouselAndCalendar from '@/components/home/Carousel.vue'
 import SearchResults from '@/components/home/SearchResults.vue'
-import JumbotronOne from '@/components/home/JumbotronOne.vue'
+import FirstText from '@/components/home/FirstText.vue'
 import RoomsPreview from '@/components/home/RoomsPreview.vue'
 import LatestBlogs from '@/components/home/LatestBlogs.vue'
 import HercegNovi from '@/components/home/HercegNovi.vue'
@@ -64,7 +64,7 @@ import OurFriends from '@/components/home/Friends.vue'
 export default {
   components: {
     CarouselAndCalendar,
-    JumbotronOne,
+    FirstText,
     RoomsPreview,
     LatestBlogs,
     HercegNovi,

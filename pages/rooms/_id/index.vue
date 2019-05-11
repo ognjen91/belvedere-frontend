@@ -7,16 +7,14 @@
 
 
     <v-container>
-      <v-layout wrap mb-3>
+      <v-layout wrap mb-5>
 
-          <v-flex xs12 md8 class="roomData description">
-            <v-layout wrap column justify-center align-center>
+          <v-flex xs12 md8 class="roomData description flex-center">
 
-                  <h2 class="text-center">slogan ove sobe</h2>
-                  <p>{{room.description_sr}}</p>
+                  <h2 class="text-center c1">{{room[`slogan_${currentLocale}`]}}</h2>
+                  <p class='cf'>{{room[`description_${currentLocale}`]}}</p>
 
 
-            </v-layout>
 
           </v-flex>
 
@@ -24,9 +22,7 @@
           <v-flex xs12 md4 class="roomData">
             <v-layout column>
               <v-flex xs12 mb-5>
-                <v-layout>
-                  <h2>Slike ove sobe</h2>
-                </v-layout>
+
                 <Gallery :images="images" galleryType="room" />
               </v-flex>
 
@@ -44,7 +40,7 @@
 
       <v-layout column mb-4>
         <v-flex mb-3>
-          <h2>Ostale sobe</h2>
+          <h2>{{ $t('rooms.otherRoomsTitle') }}</h2>
         </v-flex>
         <v-flex>
         <OtherRooms :rooms="otherRooms" />
@@ -54,7 +50,7 @@
 
       <v-layout column>
         <v-flex mb-3>
-          <h2>Pogledajte i...</h2>
+          <h2>{{ $t('rooms.seeAlso') }}...</h2>
         </v-flex>
         <v-flex>
         <ApartmentsSuggestion :apartments="apartments" />
@@ -104,7 +100,8 @@ export default {
       },
 
       images(){
-        return this.room.images.map(img=> this.sourceFolder + img.name) //because image sources must be in array with full url
+        if(this.room.images) return this.room.images.map(img=> this.sourceFolder + img.name) //because image sources must be in array with full url
+        return []
     },
 
      otherRooms(){
@@ -137,9 +134,17 @@ export default {
 
 .roomData{
 
+  flex-direction: column;
+
+
+
   @media screen and (min-width: $md){
-      height: 100% !important;
+      // height: 100% !important;
       // border: $redb;
+
+      & h2{
+        margin-bottom: 5%;
+      }
   }
 }
 </style>

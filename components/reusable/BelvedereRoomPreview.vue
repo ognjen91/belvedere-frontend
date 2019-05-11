@@ -6,16 +6,17 @@
 
       <v-card-title primary-title>
           <div>
-            <h3 class="roomName mb-2 c1 fo2 spaced">{{room.name_sr}}</h3>
+            <h3 class="roomName  c1 fo2 spaced">{{room[`name_${currentLocale}`]}}</h3>
+            <p class="cf">{{room[`slogan_${currentLocale}`]}}</p>
             <div>
-              <p class='mb-1 cf'>{{room.noOfBeds}} kreveta </p>
-              <p class='cf'>počev od 50&euro;  </p>
+              <p class='mb-1 cf'>{{room.noOfBeds}}  {{room.noOfBeds>1? $t('previews.beds') : $t('previews.bed')}}</p>
+              <p class='cf'>{{ $t('previews.startingWith')}} 50&euro;  </p>
              </div>
           </div>
       </v-card-title>
 
       <v-card-actions>
-          <v-btn :to="{ name: 'rooms-id', params: {id: room.id} }" :color="c1" dark nuxt>Pogledajte</v-btn>
+          <v-btn :to="localePath({ name: 'rooms-id', params: {id: room.id} })" :color="c1" dark nuxt>{{$t('previews.goMsg')}}</v-btn>
       </v-card-actions>
 
     </v-card>

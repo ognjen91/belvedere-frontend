@@ -1,10 +1,10 @@
 <template lang="html">
   <v-container class='blog'>
-    <v-layout align-center column>
+    <v-layout align-center column mb-4>
       <h1>{{post.title}}</h1>
-      <h3>napisao {{author.name}} dana {{post.created_at}}</h3>
+      <h3 class='cf fo2'>{{ $t('blog.writtenBy') }} <span>{{author.name}}</span> {{ $t('blog.onDate') }} {{post.created_at}}</h3>
     </v-layout>
-    <v-layout>
+    <v-layout my-5 px-5>
       <div v-html="post.content" id="post"></div>
     </v-layout>
   </v-container>
@@ -12,6 +12,8 @@
 
 <script>
 export default {
+
+  layout : "pagesNoBottomBoxes",
 
   data(){
     return{

@@ -8,7 +8,7 @@
       :src="sourceFolder + slide.name"
     >
     <div class="textHolder">
-      <h1 class="text-center">{{slide.text_sr}}</h1>
+      <h1 class="text-center">{{slide[`text_${currentLocale}`]}}</h1>
     </div>
 
 

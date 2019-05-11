@@ -14,15 +14,16 @@
         <v-card-title primary-title>
           <div>
             <h3 class="blogPreviewTitle fo1 mb-0">{{post.title}}</h3>
-            <p class="cf">napisao <span class="c3">{{post.author.name}}</span></p>
+            <p class="cf">{{$t('previews.writtenBy')}} <span class="c3">{{post.author.name}}</span></p>
             <div class='cf'> <strong class="cf">{{ post.excerpt }} </strong></div>
           </div>
         </v-card-title>
 
         <v-card-actions>
-          <nuxt-link :to="{ name: 'blog-id', params: {'id' : post.id} }" tag="v-btn">
-              <span class="c3">Pogledajte</span>
-        </nuxt-link>
+            <v-btn :to="localePath({ name: 'blog-id', params: {'id' : post.id} })" :color="c1" outline>
+              <span class="c3">{{$t('previews.readMsg')}}</span>
+            </v-btn>
+
         </v-card-actions>
 
   </v-card>

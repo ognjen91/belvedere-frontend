@@ -3,8 +3,8 @@
 
   <v-layout>
     <v-flex>
-      <h2>Objekti naših prijatelja</h2>
-      <p>Molimo Vas da pogledate i smještajne kapacitete naših dragih prijatelja koji se nalaze širom Herceg Novog.</p>
+      <h2>{{ $t('friends.title') }}</h2>
+      <p>{{ $t('friends.subtitle') }}</p>
     </v-flex>
   </v-layout>
 
@@ -36,8 +36,8 @@
 import FacilityPreview from '@/components/reusable/OtherFacilityPreview.vue'
 
 export default {
-  layout: 'pages',
-  
+  layout: 'friends',
+
 
   components : {
     FacilityPreview

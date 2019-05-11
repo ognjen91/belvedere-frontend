@@ -1,17 +1,17 @@
 <template lang="html">
-  <v-container>
+  <v-container class='friendsUnit'>
   <v-layout wrap>
-    <v-flex xs12>
-    <h2>{{unit.name_sr}}</h2>
-    <h3>{{facility.name_sr}}</h3>
+    <v-flex xs12 mb-3>
+    <h2>{{unit[`name_${currentLocale}`]}}</h2>
+    <h3>{{facility[`name_${currentLocale}`]}}</h3>
 
-    <p v-if='unit.type=="apartment"'>{{unit.noOfRooms}} sobe || {{unit.noOfBeds}} kreveta</p>
-    <p v-else>{{unit.noOfBeds}}</p>
+    <p v-if='unit.type=="apartment"'>{{unit.noOfRooms}}  {{ $t('friends.unit.rooms') }} || {{unit.noOfBeds}}  {{ $t('friends.unit.beds') }}</p>
+    <p v-else>{{unit.noOfBeds}} {{ $t('friends.unit.beds') }}</p>
   </v-flex>
 
-  <v-flex xs12 md7>
-
-    {{unit.description_sr}}
+  <v-flex xs12 px-5 md7 class="cf" v-if='unit[`description_${currentLocale}`] !== ""'>
+  {{unit[`description_${currentLocale}`]}}
+    <!-- {{}} -->
     <!-- //opis -->
   </v-flex>
   <v-flex xs12 md5 mb-5>
@@ -44,6 +44,8 @@ import Amenities from '@/components/otherFacilities/units/Amenities'
 import Gallery from '@/components/otherFacilities/units/Gallery.vue'
 export default {
 
+
+
   components : {
     Calendar,
     Amenities,
@@ -60,7 +62,8 @@ export default {
     },
 
     images(){
-      return this.unit.images.map(img=> this.sourceFolder + img.name) //because image sources must be in array with full url
+      if(this.unit.images.length) return this.unit.images.map(img=> this.sourceFolder + img.name) //because image sources must be in array with full url
+      return []
   },
   },
 
@@ -71,9 +74,10 @@ export default {
 
     try {
       let {data} = await $axios.get(params.unitType + "/" + params.unitId)
+      console.log("UNIIIT", data.data);
       return {unit : data.data}
     } catch (error) {
-      console.log(error);
+      console.log("UNIT ERROR ", error);
     }
   },
 
@@ -91,5 +95,9 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+.friendsUnit{
+  padding-top: 6.5%;
+
+}
 </style>

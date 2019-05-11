@@ -18,7 +18,7 @@
             </v-list-tile-action>
 
             <v-list-tile-content class="menuItem">
-              <v-list-tile-title><nuxt-link :to="item.link"><span class="c1 menuItemText">{{ item.title }}</span></nuxt-link></v-list-tile-title>
+              <v-list-tile-title><nuxt-link :to="item.link"><span class="c1 menuItemText">{{ item[`title_${currentLocale}`] }}</span></nuxt-link></v-list-tile-title>
             </v-list-tile-content>
 
       </v-list-tile>
@@ -38,43 +38,59 @@ export default {
     return {
       drawer: null,
       items: [{
-          title: 'Home',
+          title_en: 'Home',
+          title_sr: 'Home',
+          title_ru: 'Home',
           icon: 'fas fa-home',
           link : '/'
         },
         {
-          title: 'Facility',
+          title_en: 'Facility',
+          title_sr: 'Objekat Belvedere',
+          title_ru: 'Facility',
           icon: 'fas fa-hotel',
           link : '/facility'
         },
         {
-          title: 'Rooms & Apartments',
+          title_en: 'Rooms & Apartments',
+          title_sr: 'Sobe i apartmani',
+          title_en: 'Rooms & Apartments',
           icon: 'fas fa-bed',
           link : '/rooms'
         },
         {
-          title: 'Gallery',
+          title_en: 'Gallery',
+          title_sr: 'Galerija',
+          title_ru: 'Gallery',
           icon: 'far fa-image',
           link : '/gallery'
         },
         {
-          title: 'Blog',
+          title_en: 'Blog',
+          title_sr: 'Blog',
+          title_ru: 'Blog',
           icon: 'fas fa-book-open',
           link : '/blog'
         },
         {
-          title: 'Friends',
+          title_en: 'Friends',
+          title_sr: 'Naši prijatelji',
+          title_ru: 'Friends',
           icon: 'fas fa-user-friends',
           link : '/friends'
         },
         {
-          title: 'About',
+          title_en: 'About',
+          title_sr: 'O nama',
+          title_ru: 'About',
           icon: 'far fa-address-card',
           link : '/about'
         },
 
         {
-          title: 'Contact',
+          title_en: 'Contact',
+          title_sr: 'Kontakt',
+          title_ru: 'Contact',
           icon: 'fas fa-envelope',
           link : '/contact'
         },

@@ -1,6 +1,11 @@
 import pkg from './package'
 require('dotenv').config()
 
+
+const en = require('./lang/en-US.js')
+const sr = require('./lang/sr-RS.js')
+
+
 export default {
   mode: 'universal',
 
@@ -8,7 +13,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: "Belvedere Herceg Novi",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -60,9 +65,40 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    ['nuxt-i18n', {
+    locales: [
+      {
+        name: 'Serbian',
+        code: 'sr',
+        iso: 'sr-RS',
+        // file: 'sr-RS.js'
+      },
+      {
+        name: 'English',
+        code: 'en',
+        iso: 'en-US',
+        // file: 'en-US.js'
+      },
+    ],
+    // langDir: 'lang/',
+    defaultLocale: 'sr',
 
-  ],
+    vueI18n: {
+        fallbackLocale: 'sr',
+        messages: { en, sr }
+      },
+
+
+      pages: {
+          facility: {
+            sr: '/objekat',
+            en: '/facility',
+            ru: '/facility'
+          }
+        }
+      }
+  ]],
 
   styleResources: {
        scss: [
@@ -76,6 +112,7 @@ export default {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
     baseURL : process.env.BACKEND_URL + '/api/'
+
 
   },
 

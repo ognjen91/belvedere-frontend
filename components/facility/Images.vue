@@ -65,7 +65,7 @@ export default {
 
   data() {
     return {
-      activeImg: this.profileImage.name
+      activeImg: this.profileImage? this.profileImage.name : "placeholder.jpg"
     }
   }
 }

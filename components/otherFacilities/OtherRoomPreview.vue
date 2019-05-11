@@ -5,17 +5,17 @@
 
       <v-card-title primary-title>
         <div>
-          <h3 class="headline mb-2">{{room.name_sr}}</h3>
+          <h3 class="headline mb-2 cf">{{room[`name_${currentLocale}`]}}</h3>
           <div>
-            <p class='mb-1'>{{room.noOfBeds}} kreverta </p>
-            <p>počev od 50&euro;  </p>
+            <p class='mb-1'>{{room.noOfBeds}} {{room.noOfBeds>1? $t('previews.beds') : $t('previews.bed')}}</p>
+            <p>{{ $t('previews.startingWith')}} 50&euro;  </p>
            </div>
         </div>
       </v-card-title>
 
       <v-card-actions>
         <!-- <v-btn nuxt :href="'/rooms/'+room.id" dark color="orange">Pogledajte</v-btn> -->
-        <v-btn color="rgb(235, 128, 147)" dark :to="{ name: 'friends-facility-unitType-unitId', params: {id: room.facility_id, unitType : 'rooms', unitId: room.id} }" >Pogledajte</v-btn>
+        <v-btn :color="c1" dark :to="localePath({ name: 'friends-facility-unitType-unitId', params: {id: room.facility_id, unitType : 'rooms', unitId: room.id} })" >{{$t('previews.goMsg')}}</v-btn>
       </v-card-actions>
     </v-card>
   </div>

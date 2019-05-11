@@ -2,7 +2,8 @@
   <v-layout column>
     <v-flex xs12 md12>
       <v-layout column align-center>
-        <h2 class='mb-1 blogSectionTitle fo2'>Belvedere blog</h2>
+        <h2 class=' blogSectionTitle fo2'>{{ $t('homepage.latestBlogs.title') }}</h2>
+        <h5 class="mb-3 fo2 cf">{{ $t('homepage.latestBlogs.subtitle') }}</h5>
     </v-layout>
     </v-flex>
 
@@ -17,7 +18,7 @@
 
         <v-flex py-5>
           <v-layout justify-center>
-            <nuxt-link :to="{ name: 'blog', params: {} }"><p class="cf">Pogledajte sve blogove na stranici <span class="c1">blog</span></p></nuxt-link>
+            <nuxt-link :to="{ name: 'blog', params: {} }"><p class="cf">{{ $t('homepage.latestBlogs.seeAllBlogsAtPage') }} <span class="c1">blog</span></p></nuxt-link>
           </v-layout>
       </v-flex>
 

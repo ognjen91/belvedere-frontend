@@ -1,11 +1,11 @@
 <template lang="html">
   <v-container class="galleryPage">
     <v-layout justify-center mb-5>
-      <h1>Galerija</h1>
+      <h1>{{ $t('gallery.title') }}</h1>
     </v-layout>
 
     <v-layout>
-      <v-flex xs12>
+      <v-flex xs12 v-if="images.length">
        <gallery :images="images" :index="index" @close="index = null"></gallery>
 
 
@@ -22,6 +22,10 @@
         ></v-img>
 
       </v-layout>
+      </v-flex>
+
+      <v-flex v-else>
+        <h3 class='text-xs-center'>{{ $t('gallery.noImagesMsg') }}...</h3>
       </v-flex>
     </v-layout>
 
@@ -41,7 +45,9 @@ export default {
   },
   computed : {
     images(){
-      return this.$store.getters['belvedere/getFacility'].images.map(image=> this.sourceFolder + image.name);
+      let images = this.$store.getters['belvedere/getFacility'].images
+      if(images) return images.map(image=> this.sourceFolder + image.name);
+      return []
 
     }
   }

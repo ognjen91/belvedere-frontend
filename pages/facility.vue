@@ -3,9 +3,8 @@
   <v-container mb-3>
     <v-layout mb-5>
         <v-flex xs12>
-          <h1>{{facility.name_sr}}</h1>
-          <Rating />
-          <h4>Vaša oaza u Herceg Novom</h4>
+          <h1>{{facility[`name_${currentLocale}`]}}</h1>
+          <Rating v-if="facility.bookingRating" :booking-rating="facility.bookingRating" />
         </v-flex>
       </v-layout>
 
@@ -23,15 +22,25 @@
         <v-layout  class="descrPart" justify-center align-center>
           <v-flex pt-8>
 
-          <h3>Zdanje "Belvedere"</h3>
+          <h4>{{facility[`slogan_${currentLocale}`]}}</h4>
+
           <p>{{facility.address}}</p>
 
-          <p class="belvederDescr">
-            {{facility.description_sr}}
+          <p class="belvederDescr cf">
+            {{facility[`description_${currentLocale}`]}}
           </p>
 
-          <h4>Broj soba: {{rooms.length}}</h4>
-          <h4>Broj apartmana :{{apartments.length}}</h4>
+          <h4>{{ $t('facility.noOfRooms') }}: {{rooms.length}}</h4>
+          <h4 class="mb-4">{{ $t('facility.noOfApartments') }} :{{apartments.length}}</h4>
+
+          <v-layout>
+            <v-btn icon :href="'http://'+facility.facebook">
+              <v-icon>fab fa-facebook</v-icon>
+            </v-btn>
+            <v-btn icon :href="'http://'+facility.instagram">
+              <v-icon>fab fa-instagram</v-icon>
+            </v-btn>
+          </v-layout>
 
         </v-flex>
         </v-layout>
@@ -53,7 +62,7 @@ import History from '@/components/facility/History.vue'
 export default {
 
   layout: 'pages',
-  
+
 
 components : {
   Rating,

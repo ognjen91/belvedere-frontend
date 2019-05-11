@@ -6,14 +6,14 @@
 
 
   <v-flex xs12 sm6 lg4 class='homeCalendar px-2' >
-    <Calendar :key="1" label="Dolazni datum"  />
+    <Calendar :key="1" :label="$t('homepage.calendars.arrivalDate')"  />
   </v-flex>
 
 
   <v-flex xs12 sm6 lg2 class='homeCalendar px-2'>
     <v-text-field
-                label="Broj noćenja"
-                placeholder="Placeholder"
+                :label="$t('homepage.calendars.numberOfNights')"
+                placeholder="Number of nights"
                 v-model='nights'
                 type="number"
 
@@ -23,7 +23,7 @@
   </v-flex>
 
   <v-flex xs12 sm6 lg3 class="d-flex px-2 justify-center">
-    <v-btn :color='c3' dark class='searchBtn' @click="search">Pretraga</v-btn>
+    <v-btn :color='c3' dark class='searchBtn' @click="search">{{ $t('homepage.calendars.search') }}</v-btn>
   </v-flex>
 
 

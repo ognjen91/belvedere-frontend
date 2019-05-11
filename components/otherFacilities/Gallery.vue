@@ -3,7 +3,7 @@
 <div>
 
     <v-layout justify-center mb-5>
-      <h1>Galerija</h1>
+      <h1>{{ $t('friends.facility.galleryTitle') }}</h1>
     </v-layout>
 
     <v-layout>
@@ -50,8 +50,8 @@ export default {
   },
   computed : {
     fixedImages(){
-      return this.images.map(image=> this.sourceFolder + image.name);
-
+      if(this.images.length) return this.images.map(image=> this.sourceFolder + image.name);
+      return [];
     }
   }
 }

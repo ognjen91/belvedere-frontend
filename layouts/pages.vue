@@ -8,7 +8,7 @@
   <!-- <v-container> -->
     <nuxt class="wrap" />
   <!-- </v-container> -->
-
+    <BottomBoxes />
   <Footer />
 </v-app>
 </template>
@@ -16,10 +16,12 @@
 
 <script>
 import Header from '@/components/main/Header.vue'
+import BottomBoxes from '@/components/main/BottomBoxes.vue'
 import Footer from '@/components/main/Footer.vue'
 export default {
   components : {
     Header,
+    BottomBoxes,
     Footer
   }
 }
@@ -36,7 +38,12 @@ export default {
 }
 
 .wrap{
-  padding-top: 6.5%;
+  padding-top: 16.5%;
+
+  @media screen and (min-width: $md){
+    padding-top: 7.5%;
+
+  }
 }
 
 </style>

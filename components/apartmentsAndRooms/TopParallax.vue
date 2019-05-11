@@ -3,10 +3,10 @@
     <v-parallax dark :src="image? sourceFolder + image.name : '/placeholder.jpg'"  height=200>
       <v-layout align-center column justify-end class='insideParallax'>
         <div>
-         <h1>
+         <h1 class="spaced center--text">
            {{object.name_sr}}
          </h1>
-         <h4 py-2><span v-if="object.type=='apartment'">{{object.noOfRooms}} sobe |</span> {{object.noOfBeds}} kreveta</h4>
+         <h4 py-2 class="center--text"><span v-if="object.type=='apartment'">{{object.noOfRooms}} sobe |</span> {{object.noOfBeds}} kreveta, {{object.area}}m<sup>2</sup></h4>
         </div>
       </v-layout>
     </v-parallax>

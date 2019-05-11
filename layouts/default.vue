@@ -7,6 +7,9 @@
   <!-- <v-container> -->
     <nuxt />
   <!-- </v-container> -->
+  <BottomBoxes />
+
+
 
   <Footer />
 </v-app>
@@ -15,10 +18,12 @@
 
 <script>
 import Header from '@/components/main/Header.vue'
+import BottomBoxes from '@/components/main/BottomBoxes.vue'
 import Footer from '@/components/main/Footer.vue'
 export default {
   components : {
     Header,
+    BottomBoxes,
     Footer
   }
 }
