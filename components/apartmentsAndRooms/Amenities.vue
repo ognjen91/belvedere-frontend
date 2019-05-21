@@ -10,7 +10,7 @@
         <p class="amenity white--text">{{ $t('rooms.amenities.bathroom') }}</p> <v-icon color="white" small>fas fa-check</v-icon>
       </v-layout>
     </v-flex>
-    <v-flex v-if='object.terrcer' xs3 md2>
+    <v-flex v-if='object.terrace' xs3 md2>
       <!-- !!!fix -->
       <v-layout justify-center>
         <p class="amenity white--text">{{ $t('rooms.amenities.terrace') }}</p> <v-icon color="white" small>fas fa-check</v-icon>

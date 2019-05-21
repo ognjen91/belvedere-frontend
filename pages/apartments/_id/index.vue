@@ -8,7 +8,7 @@
 
 
       <v-container class="mb-5">
-        <v-layout wrap mb-3>
+        <v-layout wrap mb-5>
             <v-flex xs12 md8>
               <v-layout align-center justify-center class="description cf" column>
                 <h4>{{apartment[`slogan_${currentLocale}`]}}</h4>
@@ -22,16 +22,16 @@
 
             <v-flex xs12 mt-4>
               <v-layout>
-                <h2>Slike apartmana "{{apartment[`name_${currentLocale}`]}}"</h2>
+                <h2>{{$t('apartments.imagesTitle')}} "{{apartment[`name_${currentLocale}`]}}"</h2>
               </v-layout>
               <Gallery :images="images" />
             </v-flex>
         </v-layout>
 
 
-        <v-layout column mb-4>
+        <v-layout column mb-4 v-if="otherApartments.length">
           <v-flex mb-3>
-            <h2>{{ $t('homepage.apartments.otherApartmentsTitle') }}</h2>
+            <h2 class="text-xs-center text-md-left">{{ $t('apartments.otherApartmentsTitle') }}</h2>
           </v-flex>
           <v-flex>
           <OtherApartments :apartments="otherApartments" />
@@ -39,9 +39,9 @@
         </v-layout>
 
 
-        <v-layout column>
+        <v-layout column v-if="rooms.length">
           <v-flex mb-3>
-            <h2>{{ $t('homepage.apartments.seeAlso') }}</h2>
+            <h2 class="text-xs-center text-md-left">{{ $t('apartments.seeAlso') }}...</h2>
           </v-flex>
           <v-flex>
           <RoomsSuggestion :rooms="rooms" />
@@ -59,6 +59,8 @@
 </template>
 
 <script>
+import metaOf from '@/meta/apartmentSingle.js'
+
 import ApartmentHeader from '@/components/apartmentsAndRooms/TopParallax.vue'
 import Amenities from '@/components/apartmentsAndRooms/Amenities.vue'
 import Calendar from '@/components/apartmentsAndRooms/Calendar.vue'
@@ -66,6 +68,20 @@ import Gallery from '@/components/apartmentsAndRooms/Gallery.vue'
 import OtherApartments from '@/components/apartmentsAndRooms/OtherApartments.vue'
 import RoomsSuggestion from '@/components/apartmentsAndRooms/RoomsSuggestion.vue'
 export default {
+
+  head () {
+    return {
+      title: `${this.apartment[`name_${this.currentLocale}`]}: Belvedere`  ,
+      meta: [
+        { hid: 'description', name: 'description', content: `Belvedere apartment ${this.apartment[`name_${this.currentLocale}`]} : ${this.apartment.description_en}` },
+        //TWITTER & FACEBOOK
+        ...metaOf(this).twitter, ...metaOf(this).facebook,
+
+      ]
+    }
+  },
+
+
   components : {
     ApartmentHeader,
     Amenities,
@@ -117,7 +133,8 @@ export default {
       let {data} = await $axios.get("apartments/" + params.id)
       store.commit('belvedere/SET_FULL_APARTMENT', data.data)
     } catch (error) {
-      console.log(error);
+      error({ statusCode: 404, message: 'Not found' })
+      // console.log(error);
     }
   },
 

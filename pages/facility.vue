@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <v-container mb-3>
+  <v-container mb-1>
     <v-layout mb-5>
         <v-flex xs12>
           <h1>{{facility[`name_${currentLocale}`]}}</h1>
@@ -10,7 +10,7 @@
 
     <v-layout wrap>
 
-      <v-flex xs12 md7>
+      <v-flex xs12 md7 mb-4>
         <v-layout wrap>
 
           <Images :images="facility.images" :profileImage='facility.profileImage' />
@@ -59,9 +59,27 @@
 import Rating from '@/components/facility/Rating.vue'
 import Images from '@/components/facility/Images.vue'
 import History from '@/components/facility/History.vue'
+import metaOf from '@/meta/facility.js'
+
 export default {
 
   layout: 'pages',
+
+  /*HEAD, SEO*/
+
+  head () {
+     return {
+       title: 'Belvedere Apartments: ',
+       meta: [
+         { hid: 'description', name: 'description', content: 'Learn about our facility, where kings used to spent their time in Herceg Novi. Apartments and rooms near city center and The Old Town of Herceg Novi, Montenegro. Fully equiped, beautiful sea view. Main tourist attractions on a few minutes walk.' },
+         //TWITTER & FACEBOOK
+         ...metaOf(this).twitter, ...metaOf(this).facebook,
+
+       ]
+     }
+   },
+
+  /*END HEAD, SEO*/
 
 
 components : {

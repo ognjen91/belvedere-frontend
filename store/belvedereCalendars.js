@@ -49,7 +49,7 @@ export const mutations = {
 
     // making state.displayCalendars format available for displaying in vuetify calendars
     state.calendarsForDisplay.forEach(function(calendar){
-  
+
       //cleaning from empty strings
       if(calendar.dates) calendar.dates.forEach(function(date, index){
         if(!date) calendar.dates.splice(index, 1)
@@ -104,7 +104,8 @@ export const actions = {
     try {
       let calendars = await this.$axios.$get('facilities/1/calendars')
       commit('SET_CALENDARS', calendars)
-    } catch (error) {
+    } catch (e) {
+      // error({ statusCode: 404, message: 'Post not found' })
       console.log(error);
     }
   }

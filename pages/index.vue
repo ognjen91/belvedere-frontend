@@ -4,8 +4,13 @@
    <CarouselAndCalendar :slides="slides" />
 
 
+   <transition
+   enter-active-class="animated bounceInDown"
+   leave-active-class="animated fadeOut"
+   mode="out-in"
+   duration='500'>
    <SearchResults  v-if="showSearchResults" @closeSearchResults='closeResults' />
-
+ </transition>
 
    <v-container>
      <v-layout wrap>
@@ -40,7 +45,7 @@
    </v-layout>
 
 
-   <v-layout class="my-2 py-3 friendsOnHome">
+   <v-layout class="my-2 mt-5 py-3 friendsOnHome">
      <v-flex>
        <OurFriends />
      </v-flex>
@@ -103,7 +108,7 @@ export default {
 
 <style lang="scss">
 .parallax{
-  margin-bottom: 15%;
+  margin-bottom: 9%;
 }
 
 .friendsOnHome{

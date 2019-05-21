@@ -21,8 +21,8 @@
             >
               <v-card flat tile class="d-flex">
                 <v-img
-                  :src="image"
-                  lazy-src="/placeholder.jpg"
+                  :src="url + '/' + image"
+                  :lazy-src="url + '/placeholder.jpg'"
                   aspect-ratio="1"
                   class="grey lighten-2"
                 >
@@ -54,11 +54,30 @@
 </template>
 
 <script>
+import metaOf from '@/meta/about.js'
 export default {
   layout: 'pages',
+
+  /*SEO*/
+  head () {
+     return {
+       title: 'Belvedere: About us',
+       meta: [
+         { hid: 'description', name: 'description', content: 'Learn more about vision behind Belvedere Apartments, apartments with beautiful seaview near city center.' },
+         //TWITTER & FACEBOOK
+         ...metaOf(this).twitter, ...metaOf(this).facebook,
+
+
+       ]
+     }
+   },
+
+  /* end SEO*/
+
+
   data(){
     return{
-      images : ['hn1.jpg', 'hn2.jpg', 'hn3.jpg', 'hn4.jpg']
+      images : ['about1.jpg', 'about2.jpg', 'about3.jpg', 'about4.jpg']
     }
   }
 

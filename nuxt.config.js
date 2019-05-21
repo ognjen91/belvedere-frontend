@@ -4,6 +4,7 @@ require('dotenv').config()
 
 const en = require('./lang/en-US.js')
 const sr = require('./lang/sr-RS.js')
+const ru = require('./lang/ru-RU.js')
 
 
 export default {
@@ -17,11 +18,33 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: "Apartments and rooms near city center and The Old Town of Herceg Novi, Montenegro. Fully equiped, beautiful sea view. Main tourist attractions on a few minutes walk. Specail discounts for reservations from the website."},
+      {hid: 'robots', name: 'robots', content : 'follow'},
+
+
+      //TWITTER
+      {hid: 'twitter:card', name:'twitter:card', content:"summary"},
+      {hid: 'twitter:url', name:'twitter:url', content: process.env.WEBSITE_URL},
+      {hid: 'twitter:title', name:'twitter:title', content:"Belvedere Herceg Novi"},
+      {hid: 'twitter:description', name:'twitter:description', content:"Apartments and rooms near city center and The Old Town of Herceg Novi, Montenegro"},
+      {hid: 'twitter:creator', name:'twitter:creator', content:"Ognjen"},
+      {hid: 'twitter:image:src', name:'twitter:image:src', content: process.env.WEBSITE_URL + "/placeholder.jpg"},
+
+      //FACEBOOK
+      {hid: 'og:title', name:'og:title', content: "Belvedere Herceg Novi"},
+      {hid: 'og:type', name:'og:type', content: "website"},
+      {hid: 'og:url', name:'og:url', content: process.env.WEBSITE_URL},
+      {hid: 'og:image', name:'og:image', content: process.env.WEBSITE_URL + "/placeholder.jpg"},
+      {hid: 'og:description', name:'og:description', content: "Apartments and rooms near city center and The Old Town of Herceg Novi, Montenegro"},
+      {hid: 'og:site_name', name:'og:site_name', content: "belvedere-montenegro.com"}
+
+
+
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: "https://fonts.googleapis.com/css?family=Cinzel|Josefin+Sans"}
+      { rel: 'stylesheet', href: "https://fonts.googleapis.com/css?family=Cinzel|Josefin+Sans"},
+      { rel: 'shortcut icon', href:"/logoBig.png"}
 
     ],
     script : [
@@ -80,13 +103,19 @@ export default {
         iso: 'en-US',
         // file: 'en-US.js'
       },
+      {
+        name: 'Russian',
+        code: 'ru',
+        iso: 'ru-RU',
+        // file: 'en-US.js'
+      }
     ],
     // langDir: 'lang/',
     defaultLocale: 'sr',
 
     vueI18n: {
         fallbackLocale: 'sr',
-        messages: { en, sr }
+        messages: { en, sr, ru }
       },
 
 

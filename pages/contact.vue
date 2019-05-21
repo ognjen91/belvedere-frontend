@@ -24,92 +24,51 @@
 
 </v-flex>
 
-<v-flex xs10 md6 offset-xs1 offset-md0 px-3 my-4>
-          <v-layout column>
-            <v-form @submit.prevent>
-            <v-flex xs12>
+<ContactForm facility-id=1 />
 
-              <v-text-field
-                    :label="$t('contact.yourName')"
-                    :placeholder="$t('contact.namePlaceholder')"
-                    :value='name'
-                  ></v-text-field>
-
-                  <v-text-field
-                        :label="$t('contact.yourEmail')"
-                        :placeholder="$t('contact.emailPlaceholder')"
-                        :value='email'
-                      ></v-text-field>
-
-            </v-flex>
-          <v-flex xs12>
-            <v-textarea
-                    outline
-                    name="input-7-4"
-                    :label="$t('contact.textareaLabel')"
-                    :value="text"
-                    :placeholder="$t('contact.textareaPlaceholder')"
-                    required
-
-
-                  ></v-textarea>
-
-
-          </v-flex>
-
-          <v-btn :color="c1" dark @click="sendQuestion">{{ $t('contact.sendQuestionButton') }}</v-btn>
-            </v-form>
-
-          </v-layout>
-
-
-</v-flex>
 
 </v-layout>
 </v-container>
 </template>
 
 <script>
+import metaOf from '@/meta/about.js'
+import ContactForm from '@/components/contact/Form.vue'
 export default {
 
   layout : 'pagesNoBottomBoxes',
 
-  data(){
-    return{
-      name: '',
-      email: '',
-      text : "",
 
+  /*HEAD*/
+  head () {
+     return {
+       title: 'Belvedere Apartments : Contact',
+       meta: [
+         { hid: 'description', name: 'description', content: 'Contact us and we will reply soon. Special discounts for reservations from the website.' },
+         //TWITTER & FACEBOOK
+         ...metaOf(this).twitter, ...metaOf(this).facebook,
 
-    }
+       ]
+     }
+   },
+
+  /*END HEAD*/
+
+  components : {
+    ContactForm
   },
+
 
   computed : {
     facility(){
       return this.$store.getters['belvedere/getFacility']
     }
   },
-
-
-  methods: {
-    async sendQuestion(){
-      try{
-        const config = {  headers: { 'Accept': 'application/json' }
 }
 
-        // let mail = await this.$axios.post(this.theWebsite + "/api/contact/1", {
-        let mail = await this.$axios.post("http://localhost:8000/api/contact/1", {
-          sender : this.name,
-          senderEmail : this.email,
-          text : this.text
-        }, config);
-        console.log("ok   ", mail);
-      }catch(error){
-        console.log("error ", error);
-      }
-    }
-  }
-}
+
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -130,4 +89,5 @@ export default {
     margin: auto;
   }
 }
+
 </style>

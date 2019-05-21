@@ -1,7 +1,7 @@
 <template lang="html">
-  <div>
+  <div class='mb-4'>
     <v-layout column align-center>
-      <RoomHeader :image='room.profileImage || false' :object="room" />
+      <RoomHeader :image='room.profileImage' :object="room" />
     </v-layout>
     <Amenities :object="room" />
 
@@ -38,9 +38,9 @@
 
 
 
-      <v-layout column mb-4>
+      <v-layout column mb-4 v-if="otherRooms.length">
         <v-flex mb-3>
-          <h2>{{ $t('rooms.otherRoomsTitle') }}</h2>
+          <h2 class='text-xs-center text-md-left'>{{ $t('rooms.otherRoomsTitle') }}</h2>
         </v-flex>
         <v-flex>
         <OtherRooms :rooms="otherRooms" />
@@ -48,9 +48,9 @@
       </v-layout>
 
 
-      <v-layout column>
+      <v-layout column v-if="apartments.length">
         <v-flex mb-3>
-          <h2>{{ $t('rooms.seeAlso') }}...</h2>
+          <h2 class='text-xs-center text-md-left'>{{ $t('rooms.seeAlso') }}...</h2>
         </v-flex>
         <v-flex>
         <ApartmentsSuggestion :apartments="apartments" />
@@ -66,6 +66,8 @@
 </template>
 
 <script>
+import metaOf from '@/meta/roomSingle.js'
+
 import RoomHeader from '@/components/apartmentsAndRooms/TopParallax.vue'
 import Gallery from '@/components/apartmentsAndRooms/Gallery.vue'
 import Calendar from '@/components/apartmentsAndRooms/Calendar.vue'
@@ -75,6 +77,21 @@ import ApartmentsSuggestion from '@/components/apartmentsAndRooms/ApartmentsSugg
 
 
 export default {
+
+  head () {
+    return {
+      title: `${this.room.name_sr}: Belvedere`  ,
+      meta: [
+        { hid: 'description', name: 'description', content: `Belvedere room  ${this.room.name_en} : ${this.room.description_en}` },
+        //TWITTER & FACEBOOK
+        ...metaOf(this).twitter, ...metaOf(this).facebook,
+
+      ]
+    }
+  },
+
+
+
   components : {
     RoomHeader,
     Calendar,
@@ -120,7 +137,8 @@ export default {
       let {data} = await $axios.get("rooms/" + params.id)
       store.commit('belvedere/SET_FULL_ROOM', data.data)
     } catch (error) {
-      console.log(error);
+      error({ statusCode: 404, message: 'Not found' })
+      // console.log(error);
     }
   },
 

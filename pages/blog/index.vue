@@ -30,12 +30,32 @@
 </template>
 
 <script>
+import metaOf from '@/meta/blog.js'
 import {throttle} from 'lodash'
 import {mapGetters} from 'vuex'
 import BlogPreview from '@/components/reusable/BlogPreview'
 export default {
 
   layout: 'pagesNoBottomBoxes',
+
+  /*HEAD*/
+  head () {
+     return {
+  title: `Belvedere Blog`,
+      meta: [
+      {
+        hid: `description`,
+        name: 'description',
+        content: `Blog o nama, o Herceg Novom, o Boki Kotorskoj...`,
+
+      },
+      //TWITTER & FACEBOOK
+      ...metaOf(this).twitter, ...metaOf(this).facebook,
+    ]
+  }
+},
+
+  /*END HEAD*/
 
 
   components : {

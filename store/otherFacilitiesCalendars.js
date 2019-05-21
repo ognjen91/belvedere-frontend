@@ -51,6 +51,7 @@ export const actions = {
       // commit('SET_CALENDARS', calendars)
       commit('SET_CALENDARS', {calendars : calendars.data, facility_id : payload.facility_id})
     } catch (error) {
+      // error({ statusCode: 404, message: 'Post not found' })
       console.log(error);
     }
   }

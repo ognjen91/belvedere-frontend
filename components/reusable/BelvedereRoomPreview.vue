@@ -10,7 +10,7 @@
             <p class="cf">{{room[`slogan_${currentLocale}`]}}</p>
             <div>
               <p class='mb-1 cf'>{{room.noOfBeds}}  {{room.noOfBeds>1? $t('previews.beds') : $t('previews.bed')}}</p>
-              <p class='cf'>{{ $t('previews.startingWith')}} 50&euro;  </p>
+              <p class='cf' v-if="room.startingPrice">{{ $t('previews.startingWith')}} {{room.startingPrice }}&euro;  </p>
              </div>
           </div>
       </v-card-title>

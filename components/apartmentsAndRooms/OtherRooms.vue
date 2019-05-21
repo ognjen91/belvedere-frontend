@@ -1,6 +1,6 @@
 <template lang="html">
-  <v-layout justify-start>
-    <v-flex v-for='(room, i) in rooms' :key='i' xs12 md4 lg3 mr-3>
+  <v-layout justify-start wrap>
+    <v-flex v-for='(room, i) in rooms' :key='i' xs12 md4 lg3 px-3 mb-3>
       <BelvedereRoomPreview :room='room' />
     </v-flex>
   </v-layout>

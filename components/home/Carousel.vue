@@ -6,9 +6,11 @@
       v-for="(slide,i) in slides"
       :key="i"
       :src="sourceFolder + slide.name"
+      transition="fade-transition"
+
     >
     <div class="textHolder">
-      <h1 class="text-center">{{slide[`text_${currentLocale}`]}}</h1>
+      <h1 class="text-center spaced"><strong>{{slide[`text_${currentLocale}`]}}</strong></h1>
     </div>
 
 
@@ -39,7 +41,6 @@ import Calendars from '@/components/home/Calendars.vue'
 
     data () {
       return {
-
       }
     },
 

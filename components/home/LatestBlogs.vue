@@ -18,7 +18,7 @@
 
         <v-flex py-5>
           <v-layout justify-center>
-            <nuxt-link :to="{ name: 'blog', params: {} }"><p class="cf">{{ $t('homepage.latestBlogs.seeAllBlogsAtPage') }} <span class="c1">blog</span></p></nuxt-link>
+            <nuxt-link :to="localePath({ name: 'blog', params: {}})"><p class="cf">{{ $t('homepage.latestBlogs.seeAllBlogsAtPage') }} <span class="c1">blog</span></p></nuxt-link>
           </v-layout>
       </v-flex>
 

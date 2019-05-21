@@ -14,16 +14,6 @@ const previews = require('./serbian/previews')
 
 
 module.exports = {
-    // homepage: homepage,
-    // apartments: apartments,
-    // blog: blog,
-    // contact: contact,
-    // facility: facility,
-    // friends: friends,
-    // gallery: gallery,
-    // homepage: homepage,
-    // rooms: rooms,
-    // previews : previews
 
     about,
     apartments,
@@ -39,6 +29,3 @@ module.exports = {
     footer
 
   }
-
-
-// {{ $t('rooms.otherRoomsTitle') }}

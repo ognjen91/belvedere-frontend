@@ -74,6 +74,7 @@ export const actions = {
       let facilities = await this.$axios.$get('facilities')
       commit('SET_FACILITIES', {facilities : facilities.data})
     } catch (error) {
+      // error({ statusCode: 404, message: 'Post not found' })
       console.log(error);
     }
   }

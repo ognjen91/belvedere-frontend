@@ -1,14 +1,8 @@
 module.exports = {
-  title : "Priča o ljubavi",
-  text : `Fore despicationes commodo quorum vidisse, doctrina quis an fabulas fidelissimae
-  eu quorum aut nam tempor nostrud, et duis appellat laboris. Amet id cernantur
-  est duis eu sed aute ubi minim, eiusmod anim offendit ex amet et ut dolore
-  incididunt. Laboris labore expetendis, consequat elit fore ex multos non vidisse
-  illustriora iis aliquip se si velit exquisitaque, dolore comprehenderit senserit
-  irure mandaremus, tempor eiusmod sed iudicem hic possumus veniam nam litteris
-  efflorescere in noster occaecat reprehenderit.Legam qui admodum ita multos si
-  arbitror in irure ex quo id firmissimum in e aliquip philosophari, aliquip
-  concursionibus o mentitum, pariatur noster deserunt e iis nostrud ne quamquam,
-  nisi quo eu labore senserit. Mandaremus hic consequat nam anim hic appellat.
-  Constias dolor laboris sed ubi summis singulis aliquip.`
+  title : "Priča koja traje 20 godina",
+  text : `Naša priča je priča o uspjehu i mnogo uložene ljubavi. Kada se pomene uspjeh, svi znamo da on ne dolazi sam od sebe, već uz mnogo truda:
+          u našem slučaju, to je trud da svaki trenutak Vašeg odmora prođe kako treba. Godine iskustva su za nama.
+          I nije nam teško. Kada se osvrnemo iza sebe, možemo osjetiti samo ponos, a gosti koji nam se vraćaju su istinski podstrek da nastavimo kao i do sada.
+           Zbog Vas. Svjesni smo neophodnih standarda u današnjem turizmu. Svjesni smo i koliko je važno povjerenje gostiju: zato ništa ne prepuštamo slučaju.
+           U Belvedereu, kao i u našim drugim objektima, dobićete samo vrhunsku uslugu.`
 }

@@ -1,11 +1,18 @@
 module.exports = {
   box1 : {
-    text : 'Ovo je tekst 1 kutije na srpskom jeziku',
+    title : "Spektakularan pogled",
+    text : 'Pogled sa naše terase ćete pamtiti zauvjek',
   },
   box2 : {
-    text : 'Ovo je tekst 2 kutije na srpskom jeziku',
+    title : "Besplatan WiFi",
+    text : 'U cijelom objektu je dostupan besplatan bežični internet',
   },
   box3 : {
-    text : 'Ovo je tekst 3 kutije na srpskom jeziku',
-  }
+    title: "Transfer do aerodroma",
+    text : 'Povoljno vršimo usluge transfera do Aerodroma Tivat',
+  },
+  box4 : {
+    title: "Ture brodićem po zalivu",
+    text : 'Zaplovite sa nama i upoznajte Boku kotorsku na pravi način',
+  },
 }

@@ -11,7 +11,7 @@
 
             <div>
               <p class='mb-1 c1'>{{apartment.noOfRooms}} {{ apartment.noOfRooms>1? $t('previews.rooms') :  $t('previews.room')}} | {{apartment.noOfBeds}} {{apartment.noOfBeds>1? $t('previews.beds') : $t('previews.bed')}}</p>
-              <p class="c1">{{ $t('previews.startingWith')}} 50&euro;  </p>           </div>
+              <p class="c1" v-if='apartment.startingPrice'>{{ $t('previews.startingWith')}} {{apartment.startingPrice}}&euro;  </p>           </div>
           </div>
       </v-card-title>
 

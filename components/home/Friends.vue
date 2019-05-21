@@ -1,8 +1,8 @@
 <template lang="html">
-  <v-layout wrap>
+  <v-layout wrap pl-3>
 
 
-    <v-flex xs12 md4 class='friendsText'>
+    <v-flex xs12 md4 mb-4 class='friendsText'>
       <h2 class="text-xs-center mb-4 friendsSectionTitle spaced2">{{ $t('homepage.friends.title') }}</h2>
 
       <p>{{ $t('homepage.friends.text') }}</p>
@@ -11,11 +11,11 @@
     </v-flex>
     <v-flex xs12 md8>
       <v-layout wrap justify-center>
-        <v-flex xs12 md4 mr-2>
+        <v-flex xs12 md4 mr-2 v-if="typeof kumbor !== 'undefined'">
           <FacilityPreview :facility="kumbor" />
         </v-flex>
 
-        <v-flex xs12 md4 mr-2>
+        <v-flex xs12 md4 mr-2 v-if='typeof randomFacility !== "undefined" && randomFacility !== kumbor'>
           <FacilityPreview :facility="randomFacility" />
         </v-flex>
 

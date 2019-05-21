@@ -34,9 +34,28 @@
 </template>
 
 <script>
+
+import metaOf from '@/meta/gallery.js'
 export default {
   layout: 'pages',
 
+
+  /*SEO*/
+
+  head () {
+     return {
+       title: 'Belvedere Apartments Gallary',
+       meta: [
+         { hid: 'description', name: 'description', content: ': Images of apartments and rooms wirh beautiful sea view, on a just few minutes from city center and the main tourist attractions.' },
+         //TWITTER & FACEBOOK
+         ...metaOf(this).twitter, ...metaOf(this).facebook,
+
+
+       ]
+     }
+   },
+
+  /*END SEO*/
 
   data(){
     return {

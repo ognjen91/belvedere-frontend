@@ -44,6 +44,7 @@ export const actions = {
       let blogs = await this.$axios.$get('blogs/belvedere')
       commit('SET_INITIAL_BLOGS', blogs)
     } catch (error) {
+      // error({ statusCode: 404, message: 'Post not found' })
       console.log(error);
     }
   }
