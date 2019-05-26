@@ -163,8 +163,8 @@ export default {
 
 
     } catch (error) {
-      error({ statusCode: 404, message: 'Not found' })
-      // console.log(error);
+      // error({ statusCode: 404, message: 'Not found' })
+      console.log(error);
     }
   },
 }

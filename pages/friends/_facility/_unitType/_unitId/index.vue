@@ -109,8 +109,8 @@ export default {
     try {
       await store.dispatch('otherFacilitiesCalendars/setFacilityCalendars', {facility_id : params.facility})
     } catch (error) {
-      // console.log(error);
-      error({ statusCode: 404, message: 'Not found' })
+      console.log(error);
+      // error({ statusCode: 404, message: 'Not found' })
     }
   },
 

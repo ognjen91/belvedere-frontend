@@ -137,8 +137,8 @@ export default {
       let {data} = await $axios.get("rooms/" + params.id)
       store.commit('belvedere/SET_FULL_ROOM', data.data)
     } catch (error) {
-      error({ statusCode: 404, message: 'Not found' })
-      // console.log(error);
+      // error({ statusCode: 404, message: 'Not found' })
+      console.log(error);
     }
   },
 

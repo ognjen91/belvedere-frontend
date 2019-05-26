@@ -1,5 +1,10 @@
 <template lang="html">
 <v-layout wrap align-center>
+
+
+  <gallery :images="images" :index="index" @close="index = null"></gallery>
+
+
     <v-flex xs12 md4 class="novi" style='height:100%;'>
       <!-- <v-layout column justify-center  class="entryText"  style='height:100%;'> -->
 
@@ -12,14 +17,23 @@
 
 
     <v-flex xs12 md8 class="noviImages">
-     <gallery :images="images" :index="index" @close="index = null"></gallery>
-      <div
-        class="image"
-        v-for="(image, imageIndex) in images"
-        :key="imageIndex"
-        @click="index = imageIndex"
-        :style="{ backgroundImage: 'url(' + image + ')', height: '200px' }"
-      ></div>
+     <v-layout wrap justify-center class="imgWrap">
+
+      <v-img
+      lazy-src="/placeholder.jpg"
+      aspect-ratio="1.8"
+      class="image"
+      v-for="(image, imageIndex) in images"
+      :key="imageIndex"
+      :src="image"
+      @click="index = imageIndex"
+      ></v-img>
+
+    </v-layout>
+
+
+
+
     </v-flex>
     </v-layout>
 </template>
