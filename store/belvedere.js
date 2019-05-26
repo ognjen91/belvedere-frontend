@@ -106,7 +106,7 @@ export const actions = {
     try {
       let facility = await this.$axios.$get('facilities/1')
       commit('SET_BELVEDERE', {facility : facility})
-    } catch (e) {
+    } catch (error) {
       // error({ statusCode: 404, message: 'Post not found' })
       console.log(error);
     }

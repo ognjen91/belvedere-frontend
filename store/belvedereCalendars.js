@@ -104,7 +104,7 @@ export const actions = {
     try {
       let calendars = await this.$axios.$get('facilities/1/calendars')
       commit('SET_CALENDARS', calendars)
-    } catch (e) {
+    } catch (error) {
       // error({ statusCode: 404, message: 'Post not found' })
       console.log(error);
     }
