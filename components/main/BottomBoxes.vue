@@ -11,7 +11,7 @@
       <h4 class='fo2 text-xs-center'>
       {{ $t(`bottomBoxes.box${i}.title`) }}
     </h4>
-      <p class='fo2 cf text-xs-center'>
+      <p class='fo2 cf text-xs-center px-3'>
         {{ $t(`bottomBoxes.box${i}.text`) }}
       </p>
     </v-flex>

@@ -25,7 +25,7 @@
   </v-flex>
 
 
-  <v-flex xs12>
+  <v-flex xs12 mb-2>
     <!-- //amenities -->
     <Amenities :object="unit" />
 

@@ -4,8 +4,8 @@
       <!-- <h1 class="text-center">Sobe i Apartmani</h1> -->
     </v-layout>
     <v-layout justify-center wrap class="roomsPreviewHome">
-      <v-flex xs12 sm6 md4 mb-5 mx-4>
-        <ApartmentPreview :apartment="randomApartment" />
+      <v-flex xs12 sm6 md4 mb-5 mx-4 v-for="(apartment, i) in apartments" :key="i * 54">
+        <ApartmentPreview :apartment="apartment" />
       </v-flex>
 
 
@@ -30,11 +30,14 @@ export default {
   computed : {
     ...mapGetters({
       randomRooms : 'belvedere/getSeveralRandomRooms',
-      randomApartment : 'belvedere/getRandomApartment'
+      randomApartments : 'belvedere/getSeveralRandomApartments',
     }),
 
     rooms(){
-      return this.randomRooms(3);
+      return this.randomRooms(2);
+    },
+    apartments(){
+      return this.randomApartments(2);
     }
   }
 }

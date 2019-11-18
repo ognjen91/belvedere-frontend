@@ -40,6 +40,7 @@
             <v-flex xs12>
                   <p class="mb-1">  {{ $t('friends.facility.address') }} : <span class="cf">{{facility.address}}</span> </p>
                   <p class="mb-1">  {{ $t('friends.facility.owner') }} : <span class="cf">{{owner.name}}</span></p>
+                  <a :href="'mailto:'+facility.email" class="mb-1">Email: <span class="cf">{{facility.email}}</span></a>
 
                   <v-layout my-5 wrap>
                     <v-btn v-if="facility.facebook" icon :href="'http://'+facility.facebook"><v-icon>fab fa-facebook-square</v-icon></v-btn>
@@ -48,7 +49,7 @@
                   </v-layout>
 
 
-                    <ContactButtonAndForm :facility-id="facility.id" />
+                    <ContactButtonAndForm :facility-id="facility.id" :facility="facility" />
             </v-flex>
 
           </v-layout>
@@ -171,6 +172,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a{
+  text-decoration: none;
+}
+
 .slajder{
   // border: $greb;
 }

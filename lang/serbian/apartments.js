@@ -1,5 +1,5 @@
 module.exports = {
   imagesTitle : 'Slike apartmana',
-  otherApartmentsTitle : "Ostali apartmani",
+  otherApartmentsTitle : "Takođe u Belvedere 1...",
   seeAlso : 'Pogledajte i'
 }

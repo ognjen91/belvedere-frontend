@@ -5,8 +5,8 @@ module.exports = {
     apartments : "apartmana",
     room : 'soba',
     rooms : "sobe",
-    bed: 'krevet',
-    beds: "kreveta",
+    bed: 'osoba',
+    beds: "osobe",
 
     startingWith: "počev od",
     goMsg : "Pogledajte",

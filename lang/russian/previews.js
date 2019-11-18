@@ -5,8 +5,8 @@ module.exports = {
     apartments : "апартаменты",
     room : 'номер',
     rooms : "номера",
-    bed: 'постель',
-    beds: "кровати",
+    bed: 'человек',
+    beds: "лиц",
 
     startingWith: "начиная с",
     goMsg : "Узнать больше",

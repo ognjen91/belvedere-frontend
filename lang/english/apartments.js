@@ -1,5 +1,5 @@
 module.exports = {
   imagesTitle : "Images of apartment",
-  otherApartmentsTitle : "Other apartments",
+  otherApartmentsTitle : "Also in Belvedere 1...",
   seeAlso : 'See also'
 }

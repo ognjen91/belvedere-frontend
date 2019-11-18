@@ -1,12 +1,12 @@
 module.exports = {
   title : "Choose the right accomodation for yourself",
   subtitle : "and enjoy your vacations",
-  apartmentsTitle : "Apartments",
-  roomsTitle: "Rooms",
+  apartmentsTitle : "Belvedere 1",
+  roomsTitle: "Belvedere 2",
 
   // room/_id page
 
-  otherRoomsTitle : "Other Rooms",
+  otherRoomsTitle : "Also in Belvedere 1...",
   seeAlso : "See Also",
 
   amenities : {

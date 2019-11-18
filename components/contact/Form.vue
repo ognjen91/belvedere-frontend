@@ -1,85 +1,20 @@
 <template lang="html">
   <v-flex xs10 md6 offset-xs1 offset-md0 px-3 my-4>
-            <v-layout column>
-              <v-form @submit.prevent>
-                      <v-flex xs12>
+            <v-layout column class="" style="height:100%;">
 
-                        <!-- SENDER NAME -->
-                        <v-text-field
-                              :label="$t('contact.yourName')"
-                              :placeholder="$t('contact.namePlaceholder')"
-                              v-model='name'
-                            ></v-text-field>
-
-                            <!-- SENDER EMAIL -->
-                            <v-text-field
-                                  :label="$t('contact.yourEmail')"
-                                  :placeholder="$t('contact.emailPlaceholder')"
-                                  v-model='email'
-                                ></v-text-field>
-
-                      </v-flex>
-
-                    <v-flex xs12>
-                      <!--MSG-->
-                      <v-textarea
-                              outline
-                              name="input-7-4"
-                              :label="$t('contact.textareaLabel')"
-                              v-model="text"
-                              :placeholder="$t('contact.textareaPlaceholder')"
-                              required
-
-
-                            ></v-textarea>
-
-
-                    </v-flex>
-
-                    <v-btn :color="c1" dark @click="sendQuestion">{{ $t('contact.sendQuestionButton') }}</v-btn>
-              </v-form>
-
-
-
-              <!--SUCCESS MSG-->
-              <transition
-              enter-active-class="animated flipInX"
-              leave-active-class="animated fadeOut"
-              mode="out-in"
-              duration='500'>
-
-              <v-flex xs12 my-2 v-if="showSentMsg" py-2 class="successMsg">
-                <p class='white--text text-xs-center'>
-                  <v-icon>fas fa-check</v-icon> &nbsp; {{$t('contact.msgSentMsg')}}
-                </p>
+              <v-flex v-if="facilityId==1" class="text-xs-center belvedereContactText" mb-1>
+                  <h2 class="px-5 mb-3">{{$t('contact.dearGuests')}},</h2>
+                  <h3 class="cf px-5">{{$t('contact.belvedereMsg')}}</h3>
               </v-flex>
-            </transition>
+            <v-flex v-else class="belvedereContactText  text-xs-center" mb-4>
+                  <h2 class="px-5 mb-3">{{$t('contact.dearGuests')}},</h2>
+                  <h3 class="cf px-5">{{$t('contact.otherMsg')}}</h3>
+            </v-flex>
 
-            <!--ERROR WITH SERVER-->
-            <transition
-            enter-active-class="animated flipInX"
-            leave-active-class="animated fadeOut"
-            mode="out-in"
-            duration='500'>
-              <v-flex xs12 my-2 v-if="showErrorMsg" py-2 class="errorMsg">
-                <p class='white--text text-xs-center'>
-               <v-icon>fas fa-times</v-icon> &nbsp; {{$t('contact.errorMsg')}}
-              </p>
-              </v-flex>
-            </transition>
-
-            <!--ALERT FOR NON-PROPERLY INPUT-->
-            <transition
-            enter-active-class="animated flipInX"
-            leave-active-class="animated fadeOut"
-            mode="out-in"
-            duration='500'>
-              <v-flex xs12 my-2 v-if="fieldsNotOk" py-2 class="errorMsg" id='fieldsNotOk'>
-                <p class='white--text text-xs-center'>
-               <v-icon color="white">fas fa-times</v-icon> &nbsp; {{$t('contact.fieldsNotOkMsg')}}
-              </p>
-              </v-flex>
-            </transition>
+            <v-flex :class="{btnBoxBelvedere : facilityId==1, btnBoxOther: facilityId!==1}">
+                <v-btn v-if="facilityId==1" :color="c1" large dark :href="theWebsite + '/contact/' + facilityId">{{$t('contact.btnTextBelvedere')}}</v-btn>
+                <v-btn v-else :color="c1" large dark :href="theWebsite + '/contact/' + facilityId">{{$t('contact.btnTextOther')}}</v-btn>
+            </v-flex>
 
             </v-layout>
 
@@ -94,6 +29,11 @@ export default {
   props: {
     facilityId: {
       Type: Number
+    },
+
+    facility : {
+      Type: Object,
+      required: true
     }
   },
 
@@ -111,14 +51,15 @@ export default {
   },
 
   computed: {
-    facility() {
-      return this.$store.getters['belvedere/getFacility']
-    }
+    // facility() {
+    //   return this.$store.getters['belvedere/getFacility']
+    // }
   },
 
 
   methods: {
     async sendQuestion() {
+      let  theWebsite = this.theWebsite;
       if (!this.name || !this.validateEmail(this.email) || !this.text) {
         this.fieldsNotOk = true;
         setTimeout(()=>{this.fieldsNotOk = false}, 6000)
@@ -131,12 +72,12 @@ export default {
         try {
           const config = {
             headers: {
-              'Accept': 'application/json'
+              'Accept': 'application/json',
+              "Access-Control-Allow-Origin" : "belvedere-montenegro.me"
             }
           }
-
           // let mail = await this.$axios.post(this.theWebsite + "/api/contact/1", {
-          let mail = await this.$axios.post("http://localhost:8000/api/contact/"+this.facilityId , {
+          let mail = await this.$axios.post(theWebsite+"/api/contact/"+this.facilityId , {
             sender: this.name,
             senderEmail: this.email,
             text: this.text
@@ -167,4 +108,44 @@ export default {
 .errorMsg {
     background-color: rgb(185, 22, 37);
 }
+
+.image {
+  float: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px solid #ebebeb;
+  margin: 5px;
+
+  width: 100%;
+
+  @media screen and (min-width:786px){
+    // width: 25%;
+  }
+
+  @media screen and (min-width:992px){
+    // width: 20%;
+  }
+}
+
+.belvedereContactText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btnBoxOther{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.btnBoxBelvedere{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
 </style>

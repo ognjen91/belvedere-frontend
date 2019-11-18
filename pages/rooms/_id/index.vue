@@ -1,7 +1,12 @@
 <template lang="html">
   <div class='mb-4'>
-    <v-layout column align-center>
+    <!-- <v-layout column align-center>
       <RoomHeader :image='room.profileImage' :object="room" />
+    </v-layout> -->
+    <v-layout>
+      <v-flex xs12 class="slajder">
+      <Slider :slides='sliderSlides' />
+    </v-flex>
     </v-layout>
     <Amenities :object="room" />
 
@@ -11,8 +16,14 @@
 
           <v-flex xs12 md8 class="roomData description flex-center">
 
+            <h1 class="spaced center--text">
+              {{room.name_sr}}
+            </h1>
+            <h4 py-2 class="center--text cf">
+               {{room.noOfBeds}} {{room.noOfBeds>1? $t('previews.beds') : $t('previews.bed')}},
+              {{room.area}}m<sup class="cf">2</sup></h4>
                   <h2 class="text-center c1">{{room[`slogan_${currentLocale}`]}}</h2>
-                  <p class='cf'>{{room[`description_${currentLocale}`]}}</p>
+                  <p class='cf px-2'>{{room[`description_${currentLocale}`]}}</p>
 
 
 
@@ -68,6 +79,7 @@
 <script>
 import metaOf from '@/meta/roomSingle.js'
 
+import Slider from '@/components/otherFacilities/Slider.vue'
 import RoomHeader from '@/components/apartmentsAndRooms/TopParallax.vue'
 import Gallery from '@/components/apartmentsAndRooms/Gallery.vue'
 import Calendar from '@/components/apartmentsAndRooms/Calendar.vue'
@@ -93,7 +105,8 @@ export default {
 
 
   components : {
-    RoomHeader,
+    RoomHeader, //option 1
+    Slider, //option 2
     Calendar,
     Gallery,
     Amenities,
@@ -127,7 +140,17 @@ export default {
 
      apartments(){
        return this.$store.getters['belvedere/getSeveralRandomApartments'](4)
-     }
+     },
+     sliderSlides (){
+       let slides = [];
+       slides = this.room.images.map(image => {
+         return {
+           isInitial : false,
+           name : image.name
+         }
+       })
+       return slides;
+     },
   },
 
   async fetch({$axios, params, store}){

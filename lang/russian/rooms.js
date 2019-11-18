@@ -1,12 +1,12 @@
 module.exports = {
   title : "Выберите правильное размещение для себя",
   subtitle : "и приятного отдыха",
-  apartmentsTitle : "Aпартаменты",
-  roomsTitle: "Номера",
+  apartmentsTitle : "Belvedere 1",
+  roomsTitle: "Belvedere 2",
 
   // room/_id page
 
-  otherRoomsTitle : "Другие комнаты",
+  otherRoomsTitle : "Tакже в Бельведере 1...",
   seeAlso : "Смотрите также",
 
   amenities : {

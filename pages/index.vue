@@ -23,6 +23,8 @@
      </v-layout>
    </v-container>
 
+   <Video />
+
    <v-container>
      <hr my-3 mx-5>
    </v-container>
@@ -66,6 +68,7 @@ import LatestBlogs from '@/components/home/LatestBlogs.vue'
 import HercegNovi from '@/components/home/HercegNovi.vue'
 import Parallax from '@/components/home/Parallax.vue'
 import OurFriends from '@/components/home/Friends.vue'
+import Video from '@/components/home/Video.vue'
 export default {
   components: {
     CarouselAndCalendar,
@@ -75,7 +78,8 @@ export default {
     HercegNovi,
     Parallax,
     SearchResults,
-    OurFriends
+    OurFriends,
+    Video
   },
 
 
@@ -112,7 +116,8 @@ export default {
 }
 
 .friendsOnHome{
-  background-color: rgba(203, 204, 194, 0.12);
+  // background-color: rgba(203, 204, 194, 0.12);
+  background-color: rgba(#a30046, 0.06);
 }
 
 </style>

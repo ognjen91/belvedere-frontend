@@ -13,7 +13,7 @@
   duration='500'>
   <div class='otherContactForm' v-if="showForm">
     <v-icon class='closeForm' @click='showForm = false'>fas fa-times</v-icon>
-    <Form :facility-id='facilityId'  />
+    <Form :facility-id='facilityId'  :facility="facility" />
   </div>
 </transition>
 </div>
@@ -23,6 +23,8 @@
 <script>
 import Form from '@/components/contact/Form.vue'
 export default {
+
+  props : ['facility-id', 'facility'],
 
   components : {
     Form

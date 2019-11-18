@@ -12,7 +12,7 @@
           <BlogPreview :post="post" />
         </v-flex>
       </template>
-      <template v-flex>
+      <template v-else>
           <h3 class="text-xs-center">Nije napisan ni jedan blog post do sada...</h3>
       </template>
 

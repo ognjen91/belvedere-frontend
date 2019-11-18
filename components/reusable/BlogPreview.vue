@@ -1,5 +1,7 @@
 <template lang="html">
 <v-card>
+
+  <nuxt-link :to="localePath({ name: 'blog-id', params: {id: post.id} })">
         <v-img v-if="post.image"
           :src="sourceFolder + post.image.name"
           aspect-ratio="2.75"
@@ -10,6 +12,8 @@
         src="/placeholder.jpg"
         aspect-ratio="2.75"
       ></v-img>
+    </nuxt-link>
+
 
         <v-card-title primary-title>
           <div>

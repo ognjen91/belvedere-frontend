@@ -1,7 +1,9 @@
 <template lang="html">
   <div>
     <v-card>
+      <nuxt-link :to="localePath({ name: 'friends-facility', params: {facility: facility.id} })">
       <v-img :src="facility.profileImage? sourceFolder + facility.profileImage.name : '/placeholder.jpg'" aspect-ratio="1.2" lazy-src='placeholder.jpg'></v-img>
+      </nuxt-link>
 
       <v-card-title primary-title>
         <div>

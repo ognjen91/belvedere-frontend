@@ -140,7 +140,9 @@ export default {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL : process.env.BACKEND_URL + '/api/'
+    baseURL : process.env.BACKEND_URL + '/api/',
+    proxyHeaders: false,
+    credentials: false
 
 
   },

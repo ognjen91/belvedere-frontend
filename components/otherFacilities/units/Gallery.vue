@@ -48,6 +48,8 @@ export default {
 .image {
   float: left;
   margin: 5px;
+  width: 48%;
+
   @media screen and (min-width:786px){
     width: 30%;
   }

@@ -5,8 +5,8 @@ module.exports = {
     apartments : "apartments",
     room : 'room',
     rooms : "rooms",
-    bed: 'bed',
-    beds: "beds",
+    bed: 'person',
+    beds: "persons",
 
     startingWith: "starting with",
     goMsg : "See More",

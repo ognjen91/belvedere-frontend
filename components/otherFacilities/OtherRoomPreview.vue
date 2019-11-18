@@ -1,7 +1,10 @@
 <template lang="html">
   <div>
     <v-card class='thePost'>
-      <v-img :src="room.profileImage? sourceFolder + room.profileImage.name : '/placeholder.jpg'" aspect-ratio="2.5" lazy-src='placeholder.jpg'></v-img>
+      <nuxt-link :to="localePath({ name: 'friends-facility-unitType-unitId', params: {id: room.facility_id, unitType : 'rooms', unitId: room.id} })">
+        <v-img :src="room.profileImage? sourceFolder + room.profileImage.name : '/placeholder.jpg'" aspect-ratio="2.5" lazy-src='placeholder.jpg'></v-img>
+      </nuxt-link>
+
 
       <v-card-title primary-title>
         <div>

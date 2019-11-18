@@ -2,7 +2,7 @@
 <v-layout wrap align-center>
 
 
-  <gallery :images="images" :index="index" @close="index = null"></gallery>
+  <!-- <gallery :images="images" :index="index" @close="index = null"></gallery> -->
 
 
     <v-flex xs12 md4 class="novi" style='height:100%;'>

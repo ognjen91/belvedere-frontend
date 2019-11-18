@@ -12,7 +12,9 @@
     </v-card-title>
 
     <v-card-actions class="justify-center white--text madeByMe">
-      &copy;{{new Date().getFullYear()}} — <strong class="spaced white--text">{{ $t('footer.siteMadeBy') }} <a href="https://github.com/ognjen91/">Ognjen</a></strong>
+      &copy;{{new Date().getFullYear()}}  &nbsp; <strong class="spaced white--text">
+        <!-- {{ $t('footer.siteMadeBy') }} -->
+       <a href="https://github.com/ognjen91/">[by Ognjen] Orjen Web &amp; OSAM Marketing</a></strong>
     </v-card-actions>
   </v-card>
 </v-footer>
